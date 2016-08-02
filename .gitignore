@@ -90,3 +90,6 @@ ENV/
 
 # Configuration File
 config.ini
+
+# folder for saving data
+data/
