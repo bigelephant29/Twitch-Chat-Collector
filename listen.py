@@ -5,6 +5,7 @@ import socket
 import configparser
 import re
 import os
+import time
 
 def main():
   
@@ -35,7 +36,7 @@ def main():
   sock.send(('NICK %s\r\n' % username).encode('utf-8'))
   sock.send(('JOIN #%s\r\n' % sys.argv[1].lower()).encode('utf-8'))
   
-  fileName = 'data/listen_result.txt'
+  fileName = 'data/' + sys.argv[1].lower() + '/' + time.strftime("%Y%m%d%H%M%S") + '.txt'
   os.makedirs(os.path.dirname(fileName), exist_ok=True)
 
   with open(fileName, 'a') as myData:
