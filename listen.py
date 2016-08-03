@@ -44,7 +44,7 @@ def main():
     pingRe = re.compile('^PING.*')
 
     while True:
-      recvStr = sock.recv(1024).decode('utf-8')
+      recvStr = sock.recv(8192).decode('utf-8')
       ping = pingRe.match(recvStr)
       if ping:
         sock.send(recvStr.replace('PING', 'PONG').encode('utf-8'))
